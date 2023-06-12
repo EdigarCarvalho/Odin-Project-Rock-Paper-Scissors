@@ -21,36 +21,68 @@ function playRound( computerChoice , userChoice){
 
         switch(computerChoice){
             case "Rock":
-                return "Draw! Both choose Rock"
+                alert("Draw! Both choose Rock")
+                return 0
             case "Paper":
-                return "You Lose! Paper beats Rock"
+                alert("You Lose! Paper beats Rock")
+                return -1
             case "Scissors":
-                return "You Win! Rock beats Scissors"
+                alert("You Win! Rock beats Scissors")
+                return 1
         }
 
     }else if( userChoice === "Paper" ){
 
         switch(computerChoice){
             case "Rock":
-                return "You Win! Paper beats Rock"
+                alert("You Win! Paper beats Rock")
+                return 1
             case "Paper":
-                return "Draw! Both choose Paper"
+                alert("Draw! Both choose Paper")
+                return 0
             case "Scissors":
-                return "You Lose! Scissors beats Paper"
+                alert("You Lose! Scissors beats Paper")
+                return -1
         }
 
     }else{
 
         switch(computerChoice){
             case "Rock":
-                return "You Lose! Rock beats Scissors"
+                alert("You Lose! Rock beats Scissors")
+                return -1
             case "Paper":
-                return "You Win! Scissors beats Paper"
+                alert("You Win! Scissors beats Paper")
+                return 1
             case "Scissors":
-                return "Draw! Both choose Scissors"
+                alert("Draw! Both choose Scissors")
+                return 0
         }
 
     }
 }
-    
-alert(playRound(getComputerChoice() , playerSelection()))
+
+function game(){
+    let userScore = 0;
+    let computerScore = 0;
+    let roundPoint = 0;
+
+    while(userScore < 5 && computerScore < 5){
+        roundPoint = playRound( getComputerChoice() , playerSelection() )
+        if( roundPoint === -1)
+            computerScore++
+        else
+            userScore += roundPoint
+
+        alert(`The current score:\n User:${userScore}\nComputer:${computerScore}`)
+    }
+
+    if(userScore === 5)
+        alert("Congrats!!! You Win :)")
+    else
+        alert("You Lose :( \nTry again!!")
+}
+
+game()
+
+ 

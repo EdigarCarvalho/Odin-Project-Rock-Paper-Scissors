@@ -15,5 +15,42 @@ function playerSelection(){
     }
     return arr[answerNumber - 1]
 }
+
+function winner( computerChoice , userChoice){
+    if( userChoice === "Rock" ){
+
+        switch(computerChoice){
+            case "Rock":
+                return "Draw! Both choose Rock"
+            case "Paper":
+                return "You Lose! Paper beats Rock"
+            case "Scissors":
+                return "You Win! Rock beats Scissors"
+        }
+
+    }else if( userChoice === "Paper" ){
+
+        switch(computerChoice){
+            case "Rock":
+                return "You Win! Paper beats Rock"
+            case "Paper":
+                return "Draw! Both choose Paper"
+            case "Scissors":
+                return "You Lose! Scissors beats Paper"
+        }
+
+    }else{
+
+        switch(computerChoice){
+            case "Rock":
+                return "You Lose! Rock beats Scissors"
+            case "Paper":
+                return "You Win! Scissors beats Paper"
+            case "Scissors":
+                return "Draw! Both choose Scissors"
+        }
+
+    }
+}
     
-    alert(playerSelection())
+alert(winner(getComputerChoice() , playerSelection()))

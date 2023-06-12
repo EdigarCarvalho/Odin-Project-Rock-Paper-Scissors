@@ -16,7 +16,7 @@ function playerSelection(){
     return arr[answerNumber - 1]
 }
 
-function winner( computerChoice , userChoice){
+function playRound( computerChoice , userChoice){
     if( userChoice === "Rock" ){
 
         switch(computerChoice){
@@ -53,4 +53,4 @@ function winner( computerChoice , userChoice){
     }
 }
     
-alert(winner(getComputerChoice() , playerSelection()))
+alert(playRound(getComputerChoice() , playerSelection()))
